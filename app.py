@@ -43,8 +43,12 @@ def bot(history):
         question = history[-1][0]
         if question.startswith("暂不支持"):
             question = None
-    else:
+    elif isinstance(history[-1][0], (list, tuple)):
         question = history[-1][0][1]
+    elif isinstance(history[-1][0], (dict, )):
+        question = history[-1][0]["alt_text"]
+    else:
+        question = None
     print(f"question: {question}")
     if not question:
         history[-1][1] = "没有读取到问题"
