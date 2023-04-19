@@ -12,7 +12,7 @@ chatGPT = Chatbot(api_key=os.environ["openai_api_key"])
 # 例如`ch`, `en`, `fr`, `german`, `korean`, `japan`
 ocr = PaddleOCR(use_angle_cls=True, lang="ch")  # need to run only once to download and load model into memory
 
-MAX_FILE_SIZE = 2 * 1024 * 1024  # 单位字节，此处为2M
+MAX_FILE_SIZE = 3 * 1024 * 1024  # 单位字节，此处为2M
 
 
 def add_text(history, text):
@@ -22,7 +22,7 @@ def add_text(history, text):
 
 def add_file(history, file):
     if os.path.getsize(file.name) > MAX_FILE_SIZE:
-        history = history + [("暂不支持超过2M的图片", None)]
+        history = history + [("暂不支持超过3M的图片", None)]
         return history
     result = ocr.ocr(np.array(Image.open(file.name).convert('RGB')), cls=True)
     paragraph = []
@@ -42,10 +42,9 @@ def bot(history):
         question = history[-1][0]
         if question.startswith("暂不支持"):
             question = None
-    elif isinstance(history[-1][0], (tuple, list)):
-        question = history[-1][0][1]
     else:
-        question = None
+        question = history[-1][0][1]
+    print(f"question: {question}")
     if not question:
         history[-1][1] = "没有读取到问题"
         yield history
