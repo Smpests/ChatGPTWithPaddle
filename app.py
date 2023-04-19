@@ -38,7 +38,6 @@ def add_file(history, file):
 
 
 def bot(history):
-    print(history)
     if isinstance(history[-1][0], (str,)):
         question = history[-1][0]
         if question.startswith("暂不支持"):
