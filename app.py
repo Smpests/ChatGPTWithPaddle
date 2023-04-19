@@ -61,4 +61,4 @@ with gr.Blocks() as demo:
     upload_btn.upload(add_file, [chatbot, upload_btn], [chatbot]).then(bot, chatbot, chatbot)
     send_btn.click(add_text, [chatbot, txt], [chatbot, txt]).then(bot, chatbot, chatbot)
 
-demo.queue(concurrency_count=10).launch(share=True, debug=True)
+demo.queue(concurrency_count=10).launch()
