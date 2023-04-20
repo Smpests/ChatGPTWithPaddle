@@ -19,7 +19,7 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 - python app.py
 - [huggingface在线（临时）](https://huggingface.co/spaces/qingsong/448cd0_Assistant)
 
-### 参考及引用：
+### Reference
 - https://github.com/PaddlePaddle/PaddleOCR
 - https://github.com/acheong08/ChatGPT
 - https://gradio.app/creating-a-chatbot
