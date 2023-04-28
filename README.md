@@ -23,3 +23,4 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 - https://github.com/PaddlePaddle/PaddleOCR
 - https://github.com/acheong08/ChatGPT
 - https://gradio.app/creating-a-chatbot
+- https://github.com/PaddlePaddle/PaddleSpeech
